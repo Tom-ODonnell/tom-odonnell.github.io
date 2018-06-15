@@ -1,0 +1,8 @@
+Origin: Tom
+Label: Tom's Repo
+Suite: stable
+Version: 1.0
+Codename: idk
+Architectures: iphoneos-arm
+Components: main
+Description: Tom O'Donnell's Cydia Repo
