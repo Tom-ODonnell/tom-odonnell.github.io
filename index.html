@@ -10,8 +10,17 @@
     <style>
     	body {
           text-align: center;
+          margin: auto;
+          background-image: url("https://images.unsplash.com/photo-1532077414699-6841ebb3fac6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a18923835643f9e869bafd59ae1433bf&w=1000&q=80");
+          width: 450px;
         }
         h1 {
+          text-decoration: underline;
+        }
+        h4 {
+          margin-top: -0.7em;
+        }
+        h3 {
           text-decoration: underline;
         }
     </style>
@@ -19,5 +28,12 @@
 	<title>Tom O'Donnell's Site</title>
 
 </head>
-  <h1>Jailbreak Research</h1>
 <body>
+  <br><br>
+  <h1>Jailbreaking an iPhone via Ramdisk </h1>
+  <h4>By Tom O'Donnell<h4>
+  <br><br><br><br>
+  <h3>What is Jailbreaking?</h3>
+  <p>From TheiPhoneWiki, Jailbreaking is "the process by which full execute and write access is obtained on all the partitions of the Apple TV, iPad, iPad mini, iPhone or iPod touch."</p>
+  <p>A bare-bones jailbreak patches fstab to allow Read/Write access on the System Partition. Another addition most jailbreaks have is patching Services.plist to allow AFC service (to give full filesystem access from root), or as newer ones do, create a new service called AFC2, which is similar to AFC. All jailbreaks nowadays patch the kernel to disable codesign, sandboxing, etc. and to enable tfp0.</p><br>
+  <h3>This Documented Reasearch's Goal</h3>
