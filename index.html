@@ -23,6 +23,9 @@
         h3 {
           text-decoration: underline;
         }
+        .noformat {
+          text-align: left;
+        }
     </style>
     
 	<title>Tom O'Donnell's Site</title>
@@ -37,3 +40,23 @@
   <p>From TheiPhoneWiki, Jailbreaking is "the process by which full execute and write access is obtained on all the partitions of the Apple TV, iPad, iPad mini, iPhone or iPod touch."</p>
   <p>A bare-bones jailbreak patches fstab to allow Read/Write access on the System Partition. Another addition most jailbreaks have is patching Services.plist to allow AFC service (to give full filesystem access from root), or as newer ones do, create a new service called AFC2, which is similar to AFC. All jailbreaks nowadays patch the kernel to disable codesign, sandboxing, etc. and to enable tfp0.</p><br>
   <h3>This Documented Reasearch's Goal</h3>
+  <p>Gain Read/Write (R/W) access on the Root Filesystem (RootFS) of an iPhone 3GS using a Custom Ramdisk, gain ability to execute unsigned binaries, and enable AFC (Apple File Conduit)</p><br>
+  <h3>Preliminary Research</h3>
+  <div class="noformat">
+  <ul style="list-style-type:disc">
+    <li>/etc/fstab controls RootFS R/W</li>
+    <li>/System/Library/Lockdown/Services.plist controls AFC, among other stuff</li>
+    <li>Kernel prevents unsigned binary execution</li>
+    <li>LaunchDaemon abuse is useful for untethers (persistence)</li>
+  </ul>
+  </div><br>
+  <h3>Further Research</h3><br>
+  <h4>Part 1: What We Can't Do</h4>
+  <p>Pre-Jailbreaking the RootFS (i.e. Custom Firmware) is not viable because a full restore would be needed to flash RootFS to the device, hence all user data would be wiped. Therefore, we have to jalbreak the RootFS "indirectly", per se, and not from a CFW.<p><br>
+  <h4>Part 2: Research of Vulnerabilities</h4>
+  <h5>I- Unsigned Binary Execution</h5>
+  <p>This one is pretty easy. As said before, we are using a 3GS, which has a public BootROM exploit available (alloc8). Therefore, we can send our own files to the device over Pwned DFU mode, including a custom kernelcache. All we have to do is patch the kernelcache to allow unsigned binary execution.</p>
+  <h5>II- RootFS R/W</h5>
+  <p>Now that we can run custom bianries, we can do a bit of trickery here. We can decrypt the Ramdisk
+  <h5>III- Untethering</h5>
+  <p>As said earlier, abusing LaunchDaemons is a good method of untethering a jailbreak, so why not go for the jugular and use launchd? Well, because launchd's code needs to be signed, so we can't just patch launchd with out custom code. 
